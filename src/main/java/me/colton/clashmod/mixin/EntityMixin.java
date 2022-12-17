@@ -25,7 +25,6 @@ public abstract class EntityMixin {
         }
         if (Modification.OUTLINE_CLASHERS.isEnabled()) {
             if (getName().equals(Text.literal("MasterClashers"))) {
-                ClashModClient.client.player.sendMessage(getName());
                 cir.setReturnValue(true);
             }
         }
