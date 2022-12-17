@@ -18,10 +18,9 @@ public abstract class GameMenuScreenMixin extends Screen {
 
     @Inject(at = @At("HEAD"), method = "initWidgets")
     public void initWidgets(CallbackInfo ci) {
-        this.addDrawableChild(new ButtonWidget(10, 10, 70, 20, Text.of("ClashMod"), (button) ->
-        {
+        this.addDrawableChild(ButtonWidget.builder(Text.literal("ClashMod"), (buttonWidget) -> {
             assert this.client != null;
             this.client.setScreen(new ClashModScreen(this));
-        }));
+        }).dimensions(10, 10, 70, 20).build());
     }
 }

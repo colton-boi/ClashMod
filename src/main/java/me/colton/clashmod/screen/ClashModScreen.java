@@ -22,32 +22,28 @@ public class ClashModScreen extends Screen {
 
     protected void init() {
         // Hide Players mod
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 255, this.height/6 + 90, 250, 20,
-                getText(Modification.HIDE_PLAYERS), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(getText(Modification.HIDE_PLAYERS), (buttonWidget) -> {
             Modification.HIDE_PLAYERS.setEnabled(!Modification.HIDE_PLAYERS.isEnabled());
-            button.setMessage(getText(Modification.HIDE_PLAYERS));
-        }));
+            buttonWidget.setMessage(getText(Modification.HIDE_PLAYERS));
+        }).dimensions(this.width / 2 - 255, this.height / 6 + 90, 250, 20).build());
 
         // Outline Clashers mod
-        this.addDrawableChild(new ButtonWidget(this.width / 2 + 5, this.height/6 + 90, 250, 20,
-                getText(Modification.OUTLINE_CLASHERS), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(getText(Modification.OUTLINE_CLASHERS), (buttonWidget) -> {
             Modification.OUTLINE_CLASHERS.setEnabled(!Modification.OUTLINE_CLASHERS.isEnabled());
-            button.setMessage(getText(Modification.OUTLINE_CLASHERS));
-        }));
+            buttonWidget.setMessage(getText(Modification.OUTLINE_CLASHERS));
+        }).dimensions(this.width / 2 + 5, this.height / 6 + 90, 250, 20).build());
 
         // Alive Counter mod
-        this.addDrawableChild(new ButtonWidget(this.width / 2 - 255, this.height/6 + 120, 250, 20,
-                getText(Modification.ALIVE_COUNT), (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(getText(Modification.ALIVE_COUNT), (buttonWidget) -> {
             Modification.ALIVE_COUNT.setEnabled(!Modification.ALIVE_COUNT.isEnabled());
-            button.setMessage(getText(Modification.ALIVE_COUNT));
-        }));
+            buttonWidget.setMessage(getText(Modification.ALIVE_COUNT));
+        }).dimensions(this.width / 2 - 255, this.height / 6 + 120, 250, 20).build());
 
         // Back button
-        this.addDrawableChild(new ButtonWidget(this.width / 2 + 5, this.height/6 + 120, 250, 20,
-                ScreenTexts.BACK, (button) -> {
+        this.addDrawableChild(ButtonWidget.builder(ScreenTexts.BACK, (buttonWidget) -> {
             assert this.client != null;
             this.client.setScreen(this.parent);
-        }));
+        }).dimensions(this.width / 2 + 5, this.height / 6 + 120, 250, 20).build());
     }
 
     @Override
