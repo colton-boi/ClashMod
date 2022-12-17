@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "clashmod",
+  "version": "${version}",
+  "name": "ClashMod",
+  "description": "A mod used for events on MasterClasher's servers",
+  "authors": [
+    "TheCodingDuck"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.colton.clashmod.client.ClashModClient"
+    ],
+    "main": [
+      "me.colton.clashmod.ClashMod"
+    ]
+  },
+  "mixins": [
+    "clashmod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
