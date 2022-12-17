@@ -9,7 +9,8 @@
     "PlayerEntityTickMixin"
   ],
   "client": [
-    "InGameHudMixin"
+    "InGameHudMixin",
+    "WorldRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
