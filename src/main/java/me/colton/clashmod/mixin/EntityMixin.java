@@ -29,19 +29,4 @@ public abstract class EntityMixin {
             }
         }
     }
-
-    @Inject(at = @At("HEAD"), method = "isInvisible", cancellable = true)
-    public void isInvisible(CallbackInfoReturnable<Boolean> cir) {
-        if (ClashModClient.client.player == null) {
-            return;
-        }
-        if (Modification.HIDE_PLAYERS.isEnabled()) {
-            if (getType() == EntityType.PLAYER) {
-                if (!getName().equals(Text.literal("MasterClashers")) &&
-                        !getName().equals(ClashModClient.client.player.getName())) {
-                    cir.setReturnValue(true);
-                }
-            }
-        }
-    }
 }
