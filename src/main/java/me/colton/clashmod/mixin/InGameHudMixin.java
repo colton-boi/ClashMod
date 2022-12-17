@@ -1,5 +1,6 @@
 package me.colton.clashmod.mixin;
 
+import me.colton.clashmod.Modification;
 import me.colton.clashmod.client.ClashModClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.hud.InGameHud;
@@ -19,6 +20,9 @@ public abstract class InGameHudMixin {
 
     @Inject(at = @At("HEAD"), method = "render")
     public void render(MatrixStack matrices, float tickDelta, CallbackInfo ci) {
+        if (!Modification.ALIVE_COUNT.isEnabled()) {
+            return;
+        }
 
         int alive = ClashModClient.getAlivePlayers();
 
